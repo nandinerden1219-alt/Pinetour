@@ -104,7 +104,12 @@ h5 {
   color: white;
   font-family: Bebas Neue;
 }
-
+.card1:hover,
+.card2:hover,
+.card3:hover,
+.card4:hover {
+  filter: brightness(75%);
+}
 .card1 {
   width: 275.49px;
   height: 370px;
@@ -321,35 +326,47 @@ img {
   width: 250px;
   height: 250px;
   position: relative;
-  right: 200px;
-  top: -10px;
+  left: 709px;
+  top: -713px;
   display: none;
 }
 .sec3-day3 {
   width: 250px;
   height: 250px;
   position: relative;
-  right: 550px;
-  top: 100px;
+  left: 554px;
+  top: -596px;
   display: none;
 }
 .sec3-day4 {
   width: 250px;
   height: 250px;
   position: relative;
-  right: 900px;
-  top: -10px;
+  left: 658px;
+  top: -508px;
   display: none;
 }
 .sec3-day5 {
   width: 250px;
   height: 250px;
   position: relative;
-  right: 1000px;
-  top: 220px;
+  left: 500px;
+  top: -815px;
   display: none;
 }
-.day1:hover .sec3-day1 {
+.day1:hover ~ .sec3-day1 {
+  display: block;
+}
+.day2:hover ~ .sec3-day2 {
+  display: block;
+}
+.day3:hover ~ .sec3-day3 {
+  display: block;
+}
+.day4:hover ~ .sec3-day4 {
+  display: block;
+}
+.day5:hover ~ .sec3-day5 {
   display: block;
 }
 /* last section */
