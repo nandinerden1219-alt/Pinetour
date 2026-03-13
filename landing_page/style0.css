@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.BOX {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.home {
+  background-image: url("/sec1-bg.png");
+  width: 1440px;
+  height: 773px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  padding-left: 118px;
+  padding-right: 118px;
+  padding-top: 20px;
+  width: 1440px;
+  height: 100px;
+}
+img {
+  width: 100px;
+  height: 34px;
+  display: flex;
+}
+.About {
+  display: flex;
+  gap: 24px;
+  width: 392px;
+  height: 22px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.Language {
+  background-color: #ffffff;
+  color: black;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+h1 {
+  font-size: 100px;
+  color: #fdfdfefa;
+}
+h2 {
+  font-size: 40px;
+  color: #e8edf2b8;
+}
+h3 {
+  font-size: 30px;
+  color: #ffffffcc;
+}

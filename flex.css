@@ -1,0 +1,20 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+}
+.Box {
+  width: 500px;
+  height: 500px;
+  background-color: aquamarine;
+  display: flex;
+  gap: 20px;
+}
+.yek {
+  background-color: yellow;
+  order: -1;
+}
+.yuk {
+  background-color: blue;
+  order: -1;
+}

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #c7d9e5;
+        overflow-x: hidden;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+      }
+
+      .page {
+        width: 100%;
+      }
+
+      .hero {
+        width: 100%;
+        min-height: 100vh;
+        background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.18),
+            rgba(255, 255, 255, 0.45),
+            rgba(199, 217, 229, 0.95)
+          ),
+          url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 20px;
+      }
+
+      .nav {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .logo {
+        color: white;
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .menu {
+        display: flex;
+        gap: 35px;
+        list-style: none;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .lang {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: white;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .hero-text {
+        width: 100%;
+        max-width: 1200px;
+        margin: 80px auto 0;
+        text-align: center;
+        color: white;
+      }
+
+      .hero-text h3 {
+        font-size: clamp(28px, 5vw, 58px);
+        font-weight: 800;
+        opacity: 0.85;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(60px, 14vw, 180px);
+        line-height: 0.95;
+        font-weight: 900;
+        margin: 8px 0;
+      }
+
+      .hero-text h2 {
+        font-size: clamp(26px, 4vw, 60px);
+        font-weight: 800;
+      }
+
+      .cards-section {
+        width: 100%;
+        margin-top: 120px;
+      }
+
+      .cards {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        padding: 0 20px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 210px;
+        height: 280px;
+        border-radius: 28px;
+        overflow: hidden;
+        position: relative;
+        flex: 1 1 180px;
+        min-width: 170px;
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-text {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.08)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        font-weight: 800;
+        padding: 10px;
+      }
+
+      .section {
+        width: 100%;
+        padding: 70px 20px;
+      }
+
+      .wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+
+      .title h2 {
+        font-size: clamp(28px, 4vw, 48px);
+        color: #111;
+        margin-bottom: 10px;
+      }
+
+      .title p {
+        color: #444;
+        font-size: 18px;
+      }
+
+      .destination-layout {
+        width: 100%;
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .day-list {
+        flex: 1 1 360px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .day-card {
+        width: 100%;
+        min-height: 92px;
+        background: #a9d2de;
+        border-radius: 999px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 22px;
+      }
+
+      .day-card.first {
+        background: #e8dfcf;
+      }
+
+      .day-left h4 {
+        font-size: 28px;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+
+      .day-left p {
+        font-size: 14px;
+        color: #333;
+      }
+
+      .day-badge {
+        min-width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      .map-box {
+        flex: 1 1 500px;
+        min-height: 520px;
+        border-radius: 30px;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mongolia_location_map.svg/1200px-Mongolia_location_map.svg.png");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .map-box::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .pricing-grid {
+        width: 100%;
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .price-card {
+        flex: 1 1 300px;
+        max-width: 360px;
+        background: #fff;
+        border-radius: 28px;
+        padding: 28px 22px;
+      }
+
+      .price-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 28px;
+        font-size: 15px;
+      }
+
+      .price-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .price-card h3 {
+        font-size: 52px;
+        margin-bottom: 8px;
+        color: #222;
+      }
+
+      .price-sub {
+        color: #666;
+        margin-bottom: 24px;
+      }
+
+      .price-card h4 {
+        margin-bottom: 14px;
+        font-size: 18px;
+      }
+
+      .price-card ul {
+        padding-left: 18px;
+        margin-bottom: 26px;
+      }
+
+      .price-card li {
+        margin-bottom: 12px;
+        color: #333;
+        line-height: 1.5;
+      }
+
+      .btn {
+        width: 100%;
+        border: none;
+        border-radius: 999px;
+        padding: 16px;
+        background: #aad2e3;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .footer {
+        width: 100%;
+        padding: 40px 20px 60px;
+      }
+
+      .footer-inner {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .socials {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .social {
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: white;
+        color: #6f72d8;
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .footer-logo {
+        font-size: 38px;
+        font-weight: 700;
+        color: white;
+      }
+
+      @media (max-width: 900px) {
+        .menu {
+          gap: 20px;
+          font-size: 12px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-bottom: 60px;
+        }
+
+        .cards-section {
+          margin-top: 80px;
+        }
+
+        .card {
+          max-width: 46%;
+          height: 240px;
+        }
+
+        .day-left h4 {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .nav {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .menu {
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .hero-text {
+          margin-top: 50px;
+        }
+
+        .card {
+          max-width: 100%;
+          min-width: 100%;
+          height: 250px;
+        }
+
+        .day-card {
+          border-radius: 30px;
+          min-height: auto;
+        }
+
+        .day-badge {
+          min-width: 58px;
+          height: 58px;
+          font-size: 11px;
+        }
+
+        .price-card h3 {
+          font-size: 42px;
+        }
+
+        .footer-inner {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div class="nav">
+          <div class="logo">◊Tour</div>
+
+          <ul class="menu">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>⌕</li>
+          </ul>
+
+          <div class="lang">EN</div>
+        </div>
+
+        <div class="hero-text">
+          <h3>PURE MAGIC</h3>
+          <h1>AWAITS!</h1>
+          <h2>2026</h2>
+        </div>
+
+        <div class="cards-section">
+          <div class="cards">
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+                alt=""
+              />
+              <div class="card-text">TERKHIIN TSAGAAN LAKE</div>
+            </div>
+
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=800&q=80"
+                alt=""
+              />
+              <div class="card-text">AMARBAYASGALANT MONASTERY</div>
+            </div>
+
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                alt=""
+              />
+              <div class="card-text">KHUVSGUL LAKE</div>
+            </div>
+
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+                alt=""
+              />
+              <div class="card-text">KHORGIIN TOGOO</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrapper">
+          <div class="title">
+            <h2>Destination of Our Agency</h2>
+            <p>Pack Your Bags And Get Ready</p>
+          </div>
+
+          <div class="destination-layout">
+            <div class="day-list">
+              <div class="day-card first">
+                <div class="day-left">
+                  <h4>Sukhbaatar square</h4>
+                  <p>📍 Ulaanbaatar</p>
+                </div>
+                <div class="day-badge">DAY 1</div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-left">
+                  <h4>Amarbayasgalant monastery</h4>
+                  <p>📍 Bulgan</p>
+                </div>
+                <div class="day-badge">DAY 2</div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-left">
+                  <h4>Khorgiin togoo</h4>
+                  <p>📍 Arkhangai</p>
+                </div>
+                <div class="day-badge">DAY 3</div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-left">
+                  <h4>Terkhiin tsagaan lake</h4>
+                  <p>📍 Arkhangai</p>
+                </div>
+                <div class="day-badge">DAY 4</div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-left">
+                  <h4>Khuvsgul lake</h4>
+                  <p>📍 Khuvsgul</p>
+                </div>
+                <div class="day-badge">DAY 5</div>
+              </div>
+            </div>
+
+            <div class="map-box"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrapper">
+          <div class="title">
+            <h2>Pricing of Our Agency</h2>
+            <p>Choose A Package That’s Right For You</p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="price-card">
+              <div class="price-top">
+                <div class="price-icon">♥</div>
+                <span>Budget Package</span>
+              </div>
+
+              <h3>500$</h3>
+              <div class="price-sub">Essentials Covered</div>
+
+              <h4>Includes:</h4>
+              <ul>
+                <li>Group transportation (shared van/bus)</li>
+                <li>Standard accommodation (yurt or guesthouse)</li>
+                <li>Guided lake tour</li>
+                <li>1 meal per day (breakfast)</li>
+              </ul>
+
+              <button class="btn">Select package</button>
+            </div>
+
+            <div class="price-card">
+              <div class="price-top">
+                <div class="price-icon">♥</div>
+                <span>Standard Package</span>
+              </div>
+
+              <h3>800$</h3>
+              <div class="price-sub">Balanced Adventure</div>
+
+              <h4>Includes:</h4>
+              <ul>
+                <li>Comfortable transportation (mini-bus)</li>
+                <li>Mid-range accommodation (private yurt or lodge)</li>
+                <li>Guided lake tour + nearby hiking</li>
+                <li>2 meals per day (breakfast and dinner)</li>
+              </ul>
+
+              <button class="btn">Select package</button>
+            </div>
+
+            <div class="price-card">
+              <div class="price-top">
+                <div class="price-icon">♥</div>
+                <span>Luxury Package</span>
+              </div>
+
+              <h3>1200$</h3>
+              <div class="price-sub">Ultimate Comfort</div>
+
+              <h4>Includes:</h4>
+              <ul>
+                <li>Private transportation (SUV)</li>
+                <li>Luxury accommodation (lakefront lodge)</li>
+                <li>Guided tours (lake + reindeer herder experience)</li>
+                <li>All meals included (local cuisine)</li>
+              </ul>
+
+              <button class="btn">Select package</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="socials">
+            <div class="social">f&nbsp; Facebook</div>
+            <div class="social">◎&nbsp; Instagram</div>
+          </div>
+
+          <div class="footer-logo">◊Tour</div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
