@@ -10,7 +10,7 @@ body {
   margin: 0;
 }
 .page1 {
-  background-image: url("/sec1-bg.png");
+  background-image: url("./sec1-bg.png");
   background-size: cover;
   width: 1440px;
   height: 773px;
@@ -87,7 +87,7 @@ h5 {
 }
 /* section2 */
 .card {
-  background-image: url(/sec2-bg.png);
+  background-image: url(./sec2-bg.png);
   width: 1440px;
   height: 500px;
   padding-left: 109px;
@@ -114,7 +114,7 @@ h5 {
   width: 275.49px;
   height: 370px;
   border-radius: 40px;
-  background-image: url(/sec2-location1.png);
+  background-image: url(./sec2-location1.png);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -128,7 +128,7 @@ h5 {
   width: 275.49px;
   height: 370px;
   border-radius: 40px;
-  background-image: url(/sec2-location2.png);
+  background-image: url(./sec2-location2.png);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -142,7 +142,7 @@ h5 {
   width: 275.49px;
   height: 370px;
   border-radius: 40px;
-  background-image: url(/sec2-location3.png);
+  background-image: url(./sec2-location3.png);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -156,7 +156,7 @@ h5 {
   width: 275.49px;
   height: 370px;
   border-radius: 40px;
-  background-image: url(/sec2-location4.png);
+  background-image: url(./sec2-location4.png);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -168,7 +168,7 @@ h5 {
 }
 /* section 3 */
 .Map {
-  background-image: url(/sec3-bg.png);
+  background-image: url(./sec3-bg.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -373,7 +373,7 @@ img {
 .last {
   width: 1440px;
   height: 1120px;
-  background-image: url("/sec4-bg.png");
+  background-image: url("./sec4-bg.png");
   background-size: cover;
   margin-top: 0;
   font-family: inter;
